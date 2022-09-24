@@ -24,10 +24,8 @@ If the specified port is in use, this script will exit immediately. Retry with a
 If the specified address cannot be accessed this script will exit immediately. Retry with another address.
 If the specified serving directory cannot be opened this script tries one time to create and then open it. If that fails this script will exit immediately. Retry with another path.
 
-NOTE: If this script fails with a permission error try running it with root, su or sudo permissions (*NIX) or with Admin privileges (Windows Vista and later).
+NOTE: If this script fails with a permission error try running it with root, su or sudo permissions (*NIX) or with Admin privileges (Windows Vista and later). Be aware that higher privileges for this script can make your machine more vulnerable in case of an attack!
 
 ```
 ## Notes
 It's not very safe to use it as it cannot serve over a secure connection. Use at your own risk. No file upload intended, only for viewing the files in the served directory. If a directory contans an `index.html` that will be shown instead of the file list of that directory, `index.php` will not override the file view. 
-
-The attached file `pyfileshare` is intended to be copied into `/bin` or `/usr/bin` for use as an installed command. 

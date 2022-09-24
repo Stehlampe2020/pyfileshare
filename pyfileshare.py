@@ -38,7 +38,7 @@ If the specified port is in use, this script will exit immediately. Retry with a
 If the specified address cannot be accessed this script will exit immediately. Retry with another address.
 If the specified serving directory cannot be opened this script tries one time to create and then open it. If that fails this script will exit immediately. Retry with another path.
 
-NOTE: If this script fails with a permission error try running it with root, su or sudo permissions (*NIX) or with Admin privileges (Windows Vista and later).
+NOTE: If this script fails with a permission error try running it with root, su or sudo permissions (*NIX) or with Admin privileges (Windows Vista and later). Be aware that higher privileges for this script can make your machine more vulnerable in case of an attack!
 '''.format(name=args[0]))
     exit()
 

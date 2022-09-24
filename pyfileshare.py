@@ -81,7 +81,7 @@ try:
     print('Server address: {}:{}'.format(addr, port))
     server_object.serve_forever()
 except Exception as e:
-    pint('Exception occurred!\n{}: {}\nStopping server on {}:{}'.format(type(e).__name__, str(e), addr, port))
+    print('Exception occurred!\n{}: {}\nStopping server on {}:{}'.format(type(e).__name__, str(e), addr, port))
     if type(e) == KeyboarInterrupt:
         print('Exiting due to the user cancelling the script...')
         exit(type(e).__name__)

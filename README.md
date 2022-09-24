@@ -28,4 +28,4 @@ NOTE: If this script fails with a permission error try running it with root, su 
 
 ```
 ## Notes
-It's not very safe to use it as it cannot serve over a secure connection. Use at your own risk. No file upload intended, only for viewing the files in the served directory. If a directory contans an `index.html` that will be shown instead of the file list of that directory, `index.php` will not override the file view. 
+It's not very safe to use it in public networks as it cannot serve over a secure connection. Use at your own risk. No file upload intended, only for viewing the files in the served directory. If a directory contans an `index.html` that will be shown instead of the file list of that directory, `index.php` will not override the file view. 

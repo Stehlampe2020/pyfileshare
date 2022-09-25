@@ -61,18 +61,25 @@ except OSError as e:
         os.chdir(serve_dir)
     except Exception as e:
         print('Could not create/open {}! Error message:\n{}: {}\nExiting due to the above exception...'.format(type(e).__name__, str(e)))
-        exit(type(e).__name__, str(e))
-if not argument('--port'):
-    print('Choosing a random port between 10000 and 65535...')
-    port = random.randint(10000, 65535)
-else:
-    port = argument('--port')
-print('Chose port {} for serving.'.format(port))
+        exit('{}: {}'.format(type(e).__name__, str(e)))
+
 if not argument('--address'):
     addr = 'localhost'
 else:
     addr = argument('--address')
 print('Chose address {} for serving.'.format(addr))
+
+if not argument('--port'):
+    print('Choosing a random port between 10000 and 65535...')
+    port = random.randint(10000, 65535)
+else:
+    try:
+        port = int(argument('--port'))
+    except ValueError as e:
+        print('Cannot use non-numerical port ("{}" was specified)!'.format(argument('--port')))
+        print('Choosing a random port between 10000 and 65535...')
+        port = random.randint(10000, 65535)
+print('Chose port {} for serving.'.format(port))
 
 # Init end.
 
@@ -82,9 +89,10 @@ try:
     server_object.serve_forever()
 except Exception as e:
     print('Exception occurred!\n{}: {}\nStopping server on {}:{}'.format(type(e).__name__, str(e), addr, port))
-    if type(e) == KeyboarInterrupt:
+    if type(e) == KeyboardInterrupt:
         print('Exiting due to the user cancelling the script...')
         exit(type(e).__name__)
     else:
         print('Exiting due to the above exception...')
-        exit(type(e).__name__, str(e))
+        exit('{}: {}'.format(type(e).__name__, str(e)))
+

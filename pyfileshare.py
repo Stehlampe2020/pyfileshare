@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 try:
-    import os, random
+    import os, random, socket
     from http.server import HTTPServer, CGIHTTPRequestHandler
 except Exception as e:
     print(': '.join([type(e).__name__, str(e)]))
@@ -81,6 +81,13 @@ else:
         port = random.randint(10000, 65535)
 print('Chose port {} for serving.'.format(port))
 
+def get_ip(): # This function is from https://stackoverflow.com/a/23822431/17865928, copied 2022-09-25 17:05
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    s.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+    s.connect(('<broadcast>', 0))
+    return s.getsockname()[0]
+print('Current LAN IP address: {}'.format(get_ip()))
+
 # Init end.
 
 try:
@@ -88,11 +95,12 @@ try:
     print('Server address: {}:{}'.format(addr, port))
     server_object.serve_forever()
 except Exception as e:
-    print('Exception occurred!\n{}: {}\nStopping server on {}:{}'.format(type(e).__name__, str(e), addr, port))
+    print('Exception occurred!\n{}: {}\nServer on {}:{} stopped!'.format(type(e).__name__, str(e), addr, port))
     if type(e) == KeyboardInterrupt:
         print('Exiting due to the user cancelling the script...')
         exit(type(e).__name__)
     else:
         print('Exiting due to the above exception...')
         exit('{}: {}'.format(type(e).__name__, str(e)))
+
 

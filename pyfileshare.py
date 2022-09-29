@@ -28,7 +28,7 @@ WARNING: This script uses no encryption whatsoever so be aware that connections 
 Arguments:
     --help -h Display this help and exit.
     --addr    Specify an address to listen on. Default is localhost
-    --port    Specify a port to listen on. Default is a random port between 10000 and 65535
+    --port    Specify a port to listen on. Default is a random port between 49152 and 65535
     --form    Specify a directory to serve from. Default is ./fileshare
 
 A call with no arguments is equal to the following call:

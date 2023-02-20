@@ -1,4 +1,8 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+#TODO: Recode completely to be a both-direction file transfer with a CLI and a web interface
+
 try:
     import os, random, socket
     from http.server import HTTPServer, CGIHTTPRequestHandler

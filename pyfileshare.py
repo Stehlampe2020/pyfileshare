@@ -23,7 +23,8 @@ def argument(argument_to_search_for):
 if argument('--help') or argument('-h'):
     print(f'''
 {args[0]}, simple Python3-based file sharing script.
-WARNING: This script uses no encryption whatsoever so be aware that connections to it can ONLY be made using the insecure HTTP protocol!
+WARNING: This script uses no encryption whatsoever so be aware that connections to it can ONLY be made using
+the insecure HTTP protocol!
 
 Arguments:
     --help -h Display this help and exit.
@@ -36,9 +37,12 @@ A call with no arguments is equal to the following call:
 
 If the specified port is in use, this script will exit immediately. Retry with another port.
 If the specified address cannot be accessed this script will exit immediately. Retry with another address.
-If the specified serving directory cannot be opened this script tries one time to create and then open it. If that fails this script will exit immediately. Retry with another path.
+If the specified serving directory cannot be opened this script tries one time to create and then open it.
+ If that fails this script will exit immediately. Retry with another path.
 
-NOTE: If this script fails with a permission error try running it with root, su or sudo permissions (*NIX) or with Admin privileges (Windows Vista and later). Be aware that higher privileges for this script can make your machine more vulnerable in case of an attack!
+NOTE: If this script fails with a permission error try running it with root, su or sudo permissions (*NIX) or
+with Admin privileges (Windows Vista and later).
+Be aware that higher privileges for this script can make your machine more vulnerable in case of an attack!
 ''')
     exit()
 
@@ -60,7 +64,8 @@ except OSError as e:
         print(f'Opening {serve_dir} for file serving...')
         os.chdir(serve_dir)
     except Exception as e:
-        print(f'Could not create/open {serve_dir}! Error message:\n{type(e).__name__}: {e}\nExiting due to the above exception...')
+        print(f'Could not create/open {serve_dir}! Error message:\n{type(e).__name__}: {e}\nExiting due to the above\
+exception...')
         exit(f'{type(e).__name__}: {e}')
 
 if not argument('--address'):
